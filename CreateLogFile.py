@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 '''
 author information:
-name:zhangdaoyong 
+name:wanglei 
 date:Nov 23 2020
 version:1.0
 '''
