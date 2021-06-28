@@ -169,7 +169,7 @@ class opticalLongStress():
         for line in iter(testResultFile.stdout.readline,b''):
             self.printInSubWindow(ethPareInfo["monitorServer"],"iperf3 server : " + line)
             iPerftestResultLog.write(line)
-            if not testResultFile.poll() is None:
+            if testResultFile.poll() is not None:
                 #if line == "":
                 if re.search(r"receiver",line,re.I):
                     break
@@ -189,7 +189,7 @@ class opticalLongStress():
         for line in iter(testResultFile.stdout.readline,b''):  
             self.printInSubWindow(ethPareInfo["monitorCustom"],"iperf3 custom %s: " % (portNum) + line)
             iPerftestResultLog.write(line)
-            if not subprocess.Popen.poll(testResultFile) is None:
+            if subprocess.Popen.poll(testResultFile) is not None:
                 self.printInSubWindow(ethPareInfo["monitorCustom"],line)
                 if re.search(r"done",line,re.I) or re.search(r"error",line,re.I):
                 #if line == "":
